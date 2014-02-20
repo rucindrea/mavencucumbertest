@@ -17,7 +17,7 @@ Scenario: Valid Payee Jim pays 10
     When he enters "Jim" as payee name
     And he enters "10" as amount
     And he Submits request for Fund Transfer
-    Then ensure the fund transfer is complete with "$10 transferred successfully to Jim!!" message
+    Then ensure the fund transfer is complete with "" message
 
 
 Scenario: Valid Payee Jim pays 20
@@ -25,5 +25,5 @@ Scenario: Valid Payee Jim pays 20
     When he enters "Jim" as payee name
     And he enters "20" as amount
     And he Submits request for Fund Transfer
-    Then ensure the fund transfer is complete with "$20 transferred successfully to Jim!!" message
+    Then ensure the fund transfer is complete with "" message
 

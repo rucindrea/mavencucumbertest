@@ -24,6 +24,7 @@ Scenario: Valid Payee Jim pays 20
     Given the user is on Fund Transfer View
     When he enters "Jim" as payee name
     And he enters "20" as amount
+    And then I do something completely new
     And he Submits request for Fund Transfer
     Then ensure the fund transfer is complete with "$20 transferred successfully to Jim!!" message
 
