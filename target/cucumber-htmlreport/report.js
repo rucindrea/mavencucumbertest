@@ -43,7 +43,7 @@ formatter.match({
   "location": "FundTransferStepDefs.The_user_is_on_fund_transfer_page()"
 });
 formatter.result({
-  "duration": 4523464000,
+  "duration": 2932319000,
   "status": "passed"
 });
 formatter.match({
@@ -56,7 +56,7 @@ formatter.match({
   "location": "FundTransferStepDefs.He_enters_payee_name(String)"
 });
 formatter.result({
-  "duration": 169598000,
+  "duration": 79988000,
   "status": "passed"
 });
 formatter.match({
@@ -69,14 +69,14 @@ formatter.match({
   "location": "FundTransferStepDefs.He_enters_amount(String)"
 });
 formatter.result({
-  "duration": 91445000,
+  "duration": 118344000,
   "status": "passed"
 });
 formatter.match({
   "location": "FundTransferStepDefs.He_submits_request_for_fund_transfer()"
 });
 formatter.result({
-  "duration": 86377000,
+  "duration": 51403000,
   "status": "passed"
 });
 formatter.match({
@@ -89,7 +89,7 @@ formatter.match({
   "location": "FundTransferStepDefs.Ensure_the_fund_transfer_is_complete(String)"
 });
 formatter.result({
-  "duration": 50939000,
+  "duration": 57238000,
   "status": "passed"
 });
 });

@@ -5,6 +5,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.By;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+
 
 import cucumber.annotation.*;
 import cucumber.annotation.en.*;
@@ -20,8 +22,9 @@ public class FundTransferStepDefs {
 	@Before
 	public void setUp() {
 		//driver = new FirefoxDriver();
-		System.setProperty("webdriver.chrome.driver","/Users/rucindrea/workspace/FundTransfer/chromedriver"); 
-		driver = new ChromeDriver();
+		//System.setProperty("webdriver.chrome.driver","/Users/rucindrea/workspace/FundTransfer/chromedriver");
+		//driver = new ChromeDriver();
+        driver = new HtmlUnitDriver();
 	}
 	
 	@Given("the user is on Fund Transfer View")

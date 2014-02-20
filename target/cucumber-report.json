@@ -35,7 +35,7 @@
           },
           {
             "result": {
-              "duration": 50939000,
+              "duration": 57238000,
               "status": "passed"
             },
             "name": "ensure the fund transfer is complete with \"$100 transferred successfully to Jim!!\" message",
