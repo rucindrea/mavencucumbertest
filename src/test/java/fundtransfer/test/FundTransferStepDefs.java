@@ -1,29 +1,35 @@
 package fundtransfer.test;
-import org.openqa.selenium.WebDriver;
+
+import cucumber.api.Scenario;
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
+import cucumber.api.java.en.And;
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.Augmenter;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.By;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
 
-import cucumber.annotation.*;
-import cucumber.annotation.en.*;
 import static org.junit.Assert.assertEquals;
-
 
 
 public class FundTransferStepDefs {
 
 	protected WebDriver driver;
+    private Scenario scenario;
 	
 	
 	@Before
-	public void setUp() {
-		//driver = new FirefoxDriver();
-		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "chromedriver");
-		driver = new ChromeDriver();
+	public void setUp(Scenario scenario) {
+		driver = new FirefoxDriver();
+//		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "chromedriver");
+//		driver = new ChromeDriver();
+        this.scenario = scenario;
 		
 		//driver = new HtmlUnitDriver();
 	}
@@ -64,7 +70,12 @@ public class FundTransferStepDefs {
 	}
 	
 	@After
-	public void tearDown() {
+	public void tearDown(Scenario scenario) {
+        if(scenario.isFailed()) {
+            WebDriver augmentedDriver = new Augmenter().augment(driver);
+            byte[] screenshot = ((TakesScreenshot)augmentedDriver).getScreenshotAs(OutputType.BYTES);
+            scenario.embed(screenshot, "image/png");
+        }
 		driver.close();
 	}
 }
