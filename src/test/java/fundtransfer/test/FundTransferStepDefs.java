@@ -24,9 +24,9 @@ public class FundTransferStepDefs {
 	
 	@Before
 	public void setUp(Scenario scenario) {
-		//driver = new FirefoxDriver();
-		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/chromedriver");
-		driver = new ChromeDriver();
+		driver = new FirefoxDriver();
+		//System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/chromedriver");
+		//driver = new ChromeDriver();
         this.scenario = scenario;
 		
 		//driver = new HtmlUnitDriver();
