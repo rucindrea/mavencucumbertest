@@ -22,9 +22,10 @@ public class FundTransferStepDefs {
 	@Before
 	public void setUp() {
 		//driver = new FirefoxDriver();
-		//System.setProperty("webdriver.chrome.driver","/Users/rucindrea/workspace/FundTransfer/chromedriver");
-		//driver = new ChromeDriver();
-        driver = new HtmlUnitDriver();
+		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "chromedriver");
+		driver = new ChromeDriver();
+		
+		//driver = new HtmlUnitDriver();
 	}
 	
 	@Given("the user is on Fund Transfer View")
