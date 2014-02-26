@@ -14,9 +14,7 @@ import org.openqa.selenium.remote.Augmenter;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
-
 import static org.junit.Assert.assertEquals;
-
 
 public class FundTransferStepDefs {
 
