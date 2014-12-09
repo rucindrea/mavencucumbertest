@@ -24,18 +24,15 @@ public class FundTransferStepDefs {
 	
 	@Before
 	public void setUp(Scenario scenario) {
-		driver = new FirefoxDriver();
-		//System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/chromedriver");
-		//driver = new ChromeDriver();
+		//driver = new FirefoxDriver();
+		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/chromedriver");
+		driver = new ChromeDriver();
         this.scenario = scenario;
 		
-		//driver = new HtmlUnitDriver();
 	}
-	
-	@Given("the user is on Fund Transfer View")
-	public void The_user_is_on_fund_transfer_page() {
 
-
+	@Given("^the user is on Fund Transfer Page$")
+	public void the_user_is_on_Fund_Transfer_Page() throws Throwable {
 		driver.get("http://dl.dropbox.com/u/55228056/fundTransfer.html");
 	}
 		
