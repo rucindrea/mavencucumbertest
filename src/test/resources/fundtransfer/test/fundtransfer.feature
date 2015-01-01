@@ -1,29 +1,24 @@
+#noinspection CucumberUndefinedStep
+
 Feature: Customer Transfers Fund
-    As a customer with access to Transfer Funds Online,
-    I want to be able to transfer funds from my account
-    So that I can easily send money to my friends and family
+  As a customer with access to Transfer Funds Online,
+  I want to be able to transfer funds from my account
+  So that I can easily send money to my friends and family
 
-    Scenario: Valid Payee
-        Given I am on Fund Transfer Page
-        When I enter "Jim" as payee name
-        And I enter "100" as amount
-        And I confirm the transfer
-        Then the money is transfered with "$100 transferred successfully to Jim!!" message
+  Background:
+    Given I am on the Transfer Funds Online Page
 
-    Scenario: Invalid Payee
-        Given I am on Fund Transfer Page
-        When I enter "Jim" as payee name
-        And I enter "100" as amount
-        And I confirm the transfer
-        Then I see a failure message "Transfer failed!! 'Jack' is not registered in your List of Payees" displayed
+  Scenario Outline: Valid Payee
+    Given I have <an initial balance> in my account
+    When I transfer <a certain amount> to "<someone>"
+    Then I should see "<a message>"
+    And I should have <some remaining balance> left in my account
 
-    Scenario: Account is overdrawn past the overdraft limit
-        Given I am on Fund Transfer Page
-        When I enter "Jim" as payee name
-        And I enter "100" as amount
-        And I confirm the transfer
-        Then I see a failure message "Transfer failed!! account cannot be overdrawn" displayed
-
+  Examples:
+    | an initial balance | a certain amount | someone | some remaining balance | a message                                                         |
+    | 123456789          | 12               | Jim     | 123456777              | $12 transferred successfully to Jim!!                             |
+    | 2000               | 100              | Jack    | 2000                   | Transfer failed!! 'Jack' is not registered in your List of Payees |
+    | 2000               | 1000000          | Tim     | 2000                   | Transfer failed!! account cannot be overdrawn                     |
 
 
 
